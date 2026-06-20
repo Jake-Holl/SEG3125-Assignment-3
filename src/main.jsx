@@ -7,16 +7,34 @@ import Start from './Start.jsx'
 import End from './End.jsx'
 
 const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#D9D9D9',
-      right: '#40C057',
-      wrong: '#FE0103'
+  colorSchemes: {
+    light: {
+      palette: {
+        primary: {
+          main: '#D9D9D9',
+          right: '#40C057',
+          wrong: '#FE0103'
+        },
+        secondary: {
+          main: '#000000',
+          light: '#fff'
+        }
+        }
     },
-    secondary: {
-      main: '#000000',
+    dark: {
+      palette: {
+        primary: {
+          main: '#818384',
+          right: '#40C057',
+          wrong: '#FE0103'
+        },
+        secondary: {
+          main: '#fff',
+          light: '#000'
+        }
     }
-  },
+  }
+},
   typography: {
     fontFamily: [
       'IBM Plex Mono'
@@ -40,12 +58,11 @@ const theme = createTheme({
       },
     }
   }
-  
 })
 
 
 createRoot(document.getElementById('root')).render(
-  <ThemeProvider theme={theme}>
+  <ThemeProvider theme={theme} defaultMode='light'>
     <CssBaseline />
     <BrowserRouter>
         <Routes>
